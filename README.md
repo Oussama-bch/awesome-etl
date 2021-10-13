@@ -89,7 +89,7 @@ python3 -m pip install --user virtualenv
 ```
 
 ## Deployment
-All components are deployed as microservices inside dockers container and managed by docker-compose throught [yaml](https://github.com/Oussama-bch/awesome-etl/blob/main/docker-compose.yaml) file.
+All components are deployed as microservices inside dockers container and managed by docker-compose throught [yaml](https://github.com/Oussama-bch/awesome-etl/blob/master/docker-compose.yaml) file.
 <div align="center">
   <a>
     <img src="./images/compose.png" alt="Compose">
@@ -171,9 +171,9 @@ The project is developed with :
 * [Redis](https://redis.io/) - In-memory message broker
 
 ### Project content 
-* [API](https://github.com/Oussama-bch/awesome-etl/blob/main/api/README.md) - REST API code `Python3 and Flask dependencies`
-* [WORKER](https://github.com/Oussama-bch/awesome-etl/blob/main/worker/README.md) - ETL worker code `Python3 and Pandas dependencies`
-* [SWAGGER](https://github.com/Oussama-bch/awesome-etl/blob/main/swagger/README.md ) - API description `Swagger standard`.
+* [API](https://github.com/Oussama-bch/awesome-etl/blob/master/api/README.md) - REST API code `Python3 and Flask dependencies`
+* [WORKER](https://github.com/Oussama-bch/awesome-etl/blob/master/worker/README.md) - ETL worker code `Python3 and Pandas dependencies`
+* [SWAGGER](https://github.com/Oussama-bch/awesome-etl/blob/master/swagger/README.md ) - API description `Swagger standard`.
 
 
 ### Authors

@@ -1,7 +1,7 @@
 ## Getting started
 
 Those instructions will make the ETL job up and running on your local machine for development and testing purposes. 
-See [Deployment](https://github.com/Oussama-bch/awesome-etl/blob/main/README.md) section for notes on how to deploy the hole project.
+See [Deployment](https://github.com/Oussama-bch/awesome-etl/blob/master/README.md) section for notes on how to deploy the hole project.
 
 ### Prerequisites
 
@@ -11,7 +11,7 @@ Before statring you must have :
 * Running Postgresql instance
 
 ##### 1- Fill database config file
-You must fill [database.ini](https://github.com/Oussama-bch/hello-world/blob/main/worker/database.ini) with resources created above.
+You must fill [database.ini](https://github.com/Oussama-bch/awesome-etl/blob/master/worker/database.ini) with resources created above.
 ```
 [mongodb]
 uri=mongodb://[YOUR MACHINE IPv4]:2717
