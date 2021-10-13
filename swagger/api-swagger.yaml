@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  description: "This API is used to submit an ETL long running ijob"
+  version: "0.0.1"
+  title: "awesome ETL"
+host: "[YOUR_MACHINE_IPv4]"
+tags:
+- name: "jobs"
+schemes:
+- "http"
+paths:
+  /etl/jobs/start:
+    post:
+      tags:
+      - "jobs"
+      description: "Submit an ETL long running job"
+      operationId: "etlStart"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/jobRequest"
+      responses:
+        "204":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/jobResponse"
+        "400":
+          description: "Misunderstood"
+        "401":
+          description: "Unauthorised"
+        "404":
+          description: "Not found"
+        "503":
+          description: "Server error"
+  /etl/jobs/{jobid}:
+    get:
+      tags:
+      - "jobs"
+      description: "Get ETL job running state"
+      operationId: "etlCheck"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "jobid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/jobResponse"
+        "400":
+          description: "Misunderstood"
+        "401":
+          description: "Unauthorised"
+        "404":
+          description: "Not found"
+        "503":
+          description: "Server error"
+
+
+definitions:
+  jobRequest:
+    type: "object"
+    properties:
+      fileLocation:
+        type: "string"
+        example: "/path/to/file.csv"
+  jobResponse:
+    type: "object"
+    properties:
+      jobId:
+        type: "string"
+        example: "9779bb28-65db-411a-8de1-583822363728"
+      jobStatus:
+        type: "string"
+        example: "STARTING | RUNNING | COMPLETED | ERROR"
+     

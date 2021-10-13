@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - awesome-etl/volumes/postgres-volume:/data/db
+    environment:
+      -  POSTGRES_PASSWORD=cf-lab
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "2717:27017"
+    volumes:
+      - ~/mongo-volume:/data/db
+
+  redis:
+    image: "redis"
+    ports:
+      - "6379:6379"
+    volumes:
+      - awesome-etl/volumes/redis-volume:/data/db
+
+  api:
+    image: "api:latest"
+    build: awesome-etl/api
+    ports:
+      - "80:80"
+    volumes:
+      - awesome-etl/volumes/etl-volume:awesome-etl/volumes/etl-volume
+
+  worker:
+    image: "worker:latest"
+    build: awesome-etl/worker
+    volumes:
+      - awesome-etl/volumes/etl-volume:awesome-etl/volumes/etl-volume
