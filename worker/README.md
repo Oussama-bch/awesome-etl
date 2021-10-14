@@ -10,40 +10,6 @@ Before statring you must have :
 * Running Redis instance
 * Running Postgresql instance
 
-##### 1- Fill database config file
-You must fill [database.ini](https://github.com/Oussama-bch/awesome-etl/blob/master/worker/database.ini) with resources created above.
-```
-[mongodb]
-uri=mongodb://[YOUR MACHINE IPv4]:2717
-database=etl
-collection=jobs
-
-[redis]
-host=[YOUR MACHINE IPv4]
-port=6379
-db=0
-channel=etl_jobs
-
-[mongodb]
-uri=mongodb://[YOUR MACHINE IPv4]:2717
-database=etl
-collection=jobs
-
-[redis]
-host=[YOUR MACHINE IPv4]
-port=6379
-db=0
-channel=etl_jobs
-
-[postgres]
-host=[YOUR MACHINE IPv4]
-port=5432
-database=postgres
-username=cf-lab
-password=cf-lab
-table=global_power_plant
-```
-
 ## Unit tests
 Unit tests must be exectued inside a virtualenv.
 ##### 1- Activate virtualenv

@@ -53,6 +53,7 @@ It enables a ``synchonous`` REST API and long running ``asynchronous`` ETL job t
   </br>
   </br>
 </div>
+
 ## Prerequisits
 * `centos-7` Linux environment
 * `docker` and `docker-compose`
@@ -99,6 +100,54 @@ python3 -m pip install --user virtualenv
 ##### 4- Create folders to be used later as docker volume mount points
 ```
 mkdir -p volumes/postgres-volume volumes/redis-volume volumes/mongo-volume 
+```
+
+##### 5- Fill database config file for api
+You must fill [database.ini](https://github.com/Oussama-bch/awesome-etl/blob/master/api/database.ini) with resources created above.
+```
+[mongodb]
+uri=mongodb://[YOUR MACHINE IPv4]:2717
+database=etl
+collection=jobs
+
+[redis]
+host=[YOUR MACHINE IPv4]
+port=6379
+db=0
+channel=etl_jobs
+```
+##### 6- Fill database config file for worker
+You must fill [database.ini](https://github.com/Oussama-bch/awesome-etl/blob/master/worker/database.ini) with resources created above.
+```
+[mongodb]
+uri=mongodb://[YOUR MACHINE IPv4]:2717
+database=etl
+collection=jobs
+
+[redis]
+host=[YOUR MACHINE IPv4]
+port=6379
+db=0
+channel=etl_jobs
+
+[mongodb]
+uri=mongodb://[YOUR MACHINE IPv4]:2717
+database=etl
+collection=jobs
+
+[redis]
+host=[YOUR MACHINE IPv4]
+port=6379
+db=0
+channel=etl_jobs
+
+[postgres]
+host=[YOUR MACHINE IPv4]
+port=5432
+database=postgres
+username=cf-lab
+password=cf-lab
+table=global_power_plant
 ```
 
 ## Deployment

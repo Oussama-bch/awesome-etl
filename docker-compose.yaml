@@ -5,7 +5,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /vagrant/awesome-etl/volumes/postgres-volume:/data/db
+      - awesome-etl/volumes/postgres-volume:/data/db
     environment:
       -  POSTGRES_PASSWORD=cf-lab
 
@@ -21,18 +21,18 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - /vagrant/awesome-etl/volumes/redis-volume:/data/db
+      - awesome-etl/volumes/redis-volume:/data/db
 
   api:
     image: "api:latest"
-    build: /vagrant/awesome-etl/api
+    build: awesome-etl/api
     ports:
       - "80:80"
     volumes:
-      - /vagrant/awesome-etl/volumes/etl-volume:/vagrant/awesome-etl/volumes/etl-volume
+      - awesome-etl/volumes/etl-volume:awesome-etl/volumes/etl-volume
 
   worker:
     image: "worker:latest"
-    build: /vagrant/awesome-etl/worker
+    build: awesome-etl/worker
     volumes:
-      - /vagrant/awesome-etl/volumes/etl-volume:/vagrant/awesome-etl/volumes/etl-volume
+      - awesome-etl/volumes/etl-volume:awesome-etl/volumes/etl-volume
