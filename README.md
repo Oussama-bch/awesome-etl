@@ -10,7 +10,7 @@
 
 ## About The Project
 This project implements an `awesome-etl`  using modern loosely coupled ``microservice`` architecture.
-It enables a ``synchonous`` REST API and long running ``asynchronous`` ETL job throught a ``PubSub`` pattern.
+It enables a ``synchonous`` REST API and long running ``asynchronous`` ETL job through a ``PubSub`` pattern.
 <div align="center">
   <a>
     <img src="./images/pubsub.png" alt="PubSub">
@@ -31,9 +31,9 @@ It enables a ``synchonous`` REST API and long running ``asynchronous`` ETL job t
 ## Sequence diagram
 
 #### 1- Prepare and save the csv file in the local disk : /volume/etl-volume/[FILE TO LOAD.csv]
-#### 2- Submit an ETL job throught a POST HTTP call to REST API (Get the jobId as a callback)
+#### 2- Submit an ETL job through a POST HTTP call to REST API (Get the jobId as a callback)
 #### 3- ETL job starts asynchronously after receiving a message from the broker.
-#### 4- Check job status throught a GET HTTP call to REST API.
+#### 4- Check job status through a GET HTTP call to REST API.
 
 <div align="center">
 </br>
@@ -151,7 +151,7 @@ table=global_power_plant
 ```
 
 ## Deployment
-All components are deployed as microservices inside dockers container and managed by docker-compose throught [yaml](https://github.com/Oussama-bch/awesome-etl/blob/master/docker-compose.yaml) file.
+All components are deployed as microservices inside dockers container and managed by docker-compose through [yaml](https://github.com/Oussama-bch/awesome-etl/blob/master/docker-compose.yaml) file.
 <div align="center">
   <a>
     <img src="./images/compose.png" alt="Compose">
