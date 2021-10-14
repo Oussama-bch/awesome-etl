@@ -101,7 +101,6 @@ python3 -m pip install --user virtualenv
 ```
 mkdir -p volumes/postgres-volume volumes/redis-volume volumes/mongo-volume 
 ```
-
 ##### 5- Fill database config file for api
 You must fill [database.ini](https://github.com/Oussama-bch/awesome-etl/blob/master/api/database.ini) with resources created above.
 ```
