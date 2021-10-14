@@ -44,7 +44,15 @@ It enables a ``synchonous`` REST API and long running ``asynchronous`` ETL job t
   </br>
 </div>
 
-
+## MongoDB Data Model
+<div align="center">
+</br>
+  <a>
+    <img src="./images/model.png" alt="Model">
+  </a>
+  </br>
+  </br>
+</div>
 ## Prerequisits
 * `centos-7` Linux environment
 * `docker` and `docker-compose`
@@ -86,6 +94,11 @@ python3 -V
 ```
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user virtualenv
+```
+
+##### 4- Create folders to be used later as docker volume mount points
+```
+mkdir -p volumes/postgres-volume volumes/redis-volume volumes/mongo-volume 
 ```
 
 ## Deployment
@@ -175,6 +188,11 @@ The project is developed with :
 * [WORKER](https://github.com/Oussama-bch/awesome-etl/blob/master/worker/README.md) - ETL worker code `Python3 and Pandas dependencies`
 * [SWAGGER](https://github.com/Oussama-bch/awesome-etl/blob/master/swagger/README.md ) - API description `Swagger standard`.
 
+### Out of scope
+
+* Security - Authentication and Authorization
+* High availability
+* Scalability
 
 ### Authors
 

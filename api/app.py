@@ -3,7 +3,7 @@ import os
 import uuid
 
 from lib import get_creds, get_database, post_object, get_object, pub_msg_to_redis
-from datetime import datetime
+from datetime import datetime, timezone
 from flask import Flask, jsonify, request, make_response
 from flask_json_schema import JsonSchema, JsonValidationError
 
@@ -85,13 +85,13 @@ def post_job():
 
     db_conn = get_creds("database.ini", "mongodb")
     job_id = str(uuid.uuid4())
-    job_start_time = str(datetime.now().isoformat())
+    job_submission_time = str(datetime.now(timezone.utc).isoformat())
 
     object = {
         "jobId": job_id,
         "jobStatus": "STARTING",
         "fileLocation": content,
-        "jobStartTime": job_start_time
+        "jobSubmissionTime": job_submission_time
     }
     try:
         app.logger.info("Connecting to the Mongodb database...")
@@ -99,12 +99,7 @@ def post_job():
         collection = dbname[db_conn['collection']]
         post_object(collection, object)
         app.logger.info("Database connection closed.")
-        pub_msg_to_redis({
-            "jobId": job_id,
-            "jobStatus": "STARTING",
-            "fileLocation": content,
-            "jobStartTime": job_start_time
-        })
+        pub_msg_to_redis(job_id)
         return jsonify({'success': True, 'jobId': job_id, 'jobStatus': 'STARTING'}), 201
     except(Exception) as error:
         app.logger.error(error)
