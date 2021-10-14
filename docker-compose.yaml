@@ -7,7 +7,7 @@ services:
     volumes:
       - awesome-etl/volumes/postgres-volume:/data/db
     environment:
-      -  POSTGRES_PASSWORD=cf-lab
+      -  POSTGRES_PASSWORD=[PASSWORD]
 
   mongo:
     image: "mongo"
